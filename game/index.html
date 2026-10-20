@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>值班日誌</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+  <main>
+    <section id="home" class="screen">
+      <nav id="book-tabs" class="book-tabs" aria-label="科別"></nav>
+      <header class="masthead">
+        <p class="kicker" id="kicker"></p>
+        <h1 id="book-title"></h1>
+        <p class="lede" id="lede"></p>
+        <button class="btn ghost" id="open-cards"></button>
+      </header>
+      <ol id="chapter-list" class="chapter-list"></ol>
+    </section>
+
+    <section id="cards" class="screen" hidden>
+      <button class="link" id="back-home-cards">&larr; 章節</button>
+      <h2 class="page-head">教學卡收藏</h2>
+      <div id="card-shelf"></div>
+    </section>
+
+    <section id="chapter" class="screen" hidden>
+      <button class="link" id="back-home">&larr; 章節</button>
+      <h2 id="chapter-heading"></h2>
+      <ol id="case-list" class="case-list"></ol>
+    </section>
+
+    <section id="play" class="screen" hidden>
+      <div class="play-top">
+        <button class="link" id="back-chapter">&larr; 病例清單</button>
+        <div>
+          <h2 id="play-title"></h2>
+          <p id="play-patient" class="patient-tag"></p>
+        </div>
+      </div>
+      <div class="play-grid">
+        <article id="story" class="story"></article>
+        <aside class="clipboard">
+          <h3>病歷摘要 <span id="clue-count" class="count">0</span></h3>
+          <ul id="clue-list"></ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="card-view" class="card-view" aria-label="教學卡">
+    <div class="cv-bar">
+      <button class="link" id="card-prev">&larr; 上一張</button>
+      <span id="card-view-pos" class="cv-pos"></span>
+      <button class="link" id="card-next">下一張 &rarr;</button>
+      <button class="cv-close" id="card-close" aria-label="關閉">&times;</button>
+    </div>
+    <article class="tcard big" id="card-view-body"></article>
+  </dialog>
+
+  <script src="js/engine.js?v=3"></script>
+  <script src="data/books.js"></script>
+  <script src="data/chapters.js"></script>
+  <script src="data/ho-chapters.js"></script>
+  <script src="data/id-chapters.js"></script>
+  <script src="data/363-urticaria.js"></script>
+  <script src="data/364-anaphylaxis.js"></script>
+  <script src="data/365-drug-allergy.js"></script>
+  <script src="data/366-mastocytosis.js"></script>
+  <script src="data/367-autoimmunity.js"></script>
+  <script src="data/368-sle.js"></script>
+  <script src="data/369-aps.js"></script>
+  <script src="data/370-ra.js"></script>
+  <script src="data/371-arf.js"></script>
+  <script src="data/372-ssc.js"></script>
+  <script src="data/373-sjogren.js"></script>
+  <script src="data/374-spa.js"></script>
+  <script src="data/375-vasculitis.js"></script>
+  <script src="data/376-behcet.js"></script>
+  <script src="data/377-myopathies.js"></script>
+  <script src="data/378-rp.js"></script>
+  <script src="data/379-sarcoidosis.js"></script>
+  <script src="data/380-igg4.js"></script>
+  <script src="data/ho-01-anemia.js"></script>
+  <script src="data/ho-02-hemolysis.js"></script>
+  <script src="data/ho-03-platelet.js"></script>
+  <script src="data/ho-04-coag.js"></script>
+  <script src="data/ho-05-wbc-tfn.js"></script>
+  <script src="data/ho-06-mds-mpn.js"></script>
+  <script src="data/ho-07-acute-leuk.js"></script>
+  <script src="data/ho-08-cml-cll.js"></script>
+  <script src="data/ho-09-lymphoma.js"></script>
+  <script src="data/ho-10-plasma.js"></script>
+  <script src="data/ho-11-hsct-io.js"></script>
+  <script src="data/ho-12-lung.js"></script>
+  <script src="data/ho-13-breast-prostate.js"></script>
+  <script src="data/ho-14-gi.js"></script>
+  <script src="data/ho-15-ovary-cns-mel.js"></script>
+  <script src="data/ho-16-emerg-tox.js"></script>
+  <script src="data/id-05-cns.js"></script>
+  <script src="data/id-12-gu.js"></script>
+  <script src="data/id-01-principles.js"></script>
+  <script src="data/id-02-toxin.js"></script>
+  <script src="data/id-03-ssti.js"></script>
+  <script src="data/id-04-osteo.js"></script>
+  <script src="data/id-06-bsi.js"></script>
+  <script src="data/id-07-ie.js"></script>
+  <script src="data/id-08-uri-flu.js"></script>
+  <script src="data/id-09-pneumonia.js"></script>
+  <script src="data/id-10-tb.js"></script>
+  <script src="data/id-11-gi.js"></script>
+  <script src="data/id-13-fungal.js"></script>
+  <script src="data/id-14-vector-zoo.js"></script>
+  <script src="data/id-15-mdro-bt.js"></script>
+  <script src="data/id-16-sti.js"></script>
+  <script src="data/id-17-hiv.js"></script>
+  <script src="data/id-18-oi.js"></script>
+  <script src="data/id-19-agents.js"></script>
+$tag
+  <script>RPG.renderHome();</script>
+</body>
+</html>
